@@ -1,0 +1,20 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.test.projectmanagement.Dao.ProjectInfoMapper">
+
+    <select id="getProjectInfo" parameterType="Map" resultType="org.test.projectmanagement.Model.ProjectInfo">
+        select * from projectinfo
+            <if test="status != null">
+                where status = ${status}
+            </if>
+    </select>
+
+    <select id="getProjectInfoByStruts" parameterType="java.lang.Integer" resultType="org.test.projectmanagement.Model.ProjectInfo">
+        select * from projectinfo where id = ${id}
+    </select>
+
+    <update id="updateProjectInfoStruts" parameterType="Map" >
+        update projectinfo set `status` = ${status} where id = ${id}
+    </update>
+</mapper>

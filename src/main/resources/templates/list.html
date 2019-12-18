@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="/list">
+    申报状态：<select id="stauts">
+    <option value="-1" selected="selected">全部</option>
+    <option value="0">已申报</option>
+    <option value="1">审核中</option>
+    <option value="2">已审核</option>
+</select>
+<input type="submit" value="提交"/>
+</form>
+<table id="list">
+    <th>
+        <td colspan="6" align="center">申报项目列表</td>
+    </th>
+    <tr bgcolor="gray">
+        <td>项目编号</td>
+        <td>项目名称</td>
+        <td>申报开始日期</td>
+        <td>申报结束日期</td>
+        <td>申报状态</td>
+        <td>操作</td>
+    </tr>
+<!--    <p th:text="${projectInfoList}"/>-->
+    <tr th:each="project:${projectInfoList}">
+        <td th-text="${project.id}"/>
+        <td th-text="${project.projectName}"/>
+        <td th-text="${project.startDate}"/>
+        <td th-text="${project.endDate}"/>
+        <td th-text="${project.status}"/>
+        <td><a href="/getOne?id=${project.id}">审核</a> </td>
+    </tr>
+
+</table>
+</body>
+</html>

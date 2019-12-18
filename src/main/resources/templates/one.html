@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+<table id="app">
+    <th>
+        <td colspan="2">申报项目信息</td>
+    </th>
+    <tr>
+        <td>项目编号</td>
+        <td>${projectInfo.id}</td>
+    </tr>
+    <tr>
+        <td>项目名称</td>
+        <td>${projectInfo.projectName}</td>
+    </tr>
+    <tr>
+        <td>申报开始日期</td>
+        <td>${projectInfo.startDate}</td>
+    </tr>
+    <tr>
+        <td>申报结束日期</td>
+        <td>${projectInfo.endDate}</td>
+    </tr>
+    <tr>
+        <td>申报状态</td>
+        <td>${projectInfo.status}</td>
+    </tr>
+    <tr>
+        <input type="button" value="审核" onclick="app.submit()"/>
+        <input type="button" value="返回" onclick="location.go(-1)"/>
+    </tr>
+</table>
+
+<script>
+    var app = new Vue({
+        el:"#app",
+        data :{
+            id : projectInfo.id,
+            status : projectInfo.stauts
+        },
+        methods:{
+            submit: function () {
+                axios.get('/update',{
+                    id : id,
+                    status : status
+                }).then(function (response) {
+                    if (response.data == 1){
+                        location.href = "list.html"
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>
