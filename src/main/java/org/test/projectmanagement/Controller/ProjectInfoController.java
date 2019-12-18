@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.test.projectmanagement.Model.ProjectInfo;
 import org.test.projectmanagement.Service.ProjectInfoService;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 @Api(tags = {"论坛信息"})
 @Controller
