@@ -22,6 +22,7 @@ public class ProjectInfoController {
     @Autowired
     private ProjectInfoService projectInfoService;
 
+
     @ApiOperation(value = "信息列表")
     @GetMapping("/list")
     public String method1(@RequestParam(value ="struts",required = false) String struts,Model model){
