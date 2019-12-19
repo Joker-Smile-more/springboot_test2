@@ -9,6 +9,8 @@ public class ProjectInfo {
     private Date endDate;
     private Integer status;
 
+
+    
     public Integer getId() {
         return id;
     }
