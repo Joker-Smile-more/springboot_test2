@@ -8,7 +8,7 @@ public class ProjectInfo {
     private Date startDate;
     private Date endDate;
     private Integer status;
-    
+
     public Integer getId() {
         return id;
     }
